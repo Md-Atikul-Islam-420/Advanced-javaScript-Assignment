@@ -19,7 +19,7 @@
             });
         }
 
-        // Function to add money to the balance
+        //  add money to the balance
         function addMoney() {
             let amount = parseFloat(document.getElementById('amount').value); 
             if (isNaN(amount) || amount <= 0) {
@@ -27,6 +27,19 @@
                 return;
             }
             balance += amount; 
+
+             //  transaction record
+             transactions.unshift({
+                date: new Date().toLocaleString(),
+                type: 'Add',
+                amount: amount.toFixed(2),
+                newBalance: balance.toFixed(2)
+            });
+
+            updateBalance(); 
+            updateTransactionHistory(); 
+            document.getElementById('amount').value = ''; 
+        }
 
 
 
