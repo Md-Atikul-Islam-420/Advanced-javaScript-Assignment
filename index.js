@@ -6,7 +6,6 @@
             document.getElementById('balance').textContent = balance.toFixed(2);
         }
 
-         // Function to update the transaction history display
          function updateTransactionHistory() {
             const historyList = document.getElementById('transaction-history');
             historyList.innerHTML = ''; 
@@ -19,5 +18,15 @@
                 historyList.appendChild(listItem);
             });
         }
+
+        // Function to add money to the balance
+        function addMoney() {
+            let amount = parseFloat(document.getElementById('amount').value); 
+            if (isNaN(amount) || amount <= 0) {
+                alert('Please enter a valid amount'); 
+                return;
+            }
+            balance += amount; 
+
 
 
